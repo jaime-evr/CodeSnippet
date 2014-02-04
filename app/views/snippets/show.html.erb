@@ -1,5 +1,7 @@
 <h1> snippet </h2>
 
-<p><%= @snippet.highlighted_code.html_safe %></p>
-
-<p><%= @snippet.plain_code %></p>
+<% if @snippet.highlighted_code.present? %>
+  <%= raw @snippet.highlighted_code %>
+<% else %>
+  <pre><%= @snippet.plain_code %></pre>
+<% end %>
